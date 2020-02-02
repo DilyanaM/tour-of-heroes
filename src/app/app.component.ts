@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Tour of Heroes';
+
+  get isHeroesRoute() {
+    return location.pathname === '/heroes';
+  }
 }
