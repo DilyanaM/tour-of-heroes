@@ -1,4 +1,5 @@
 <h2>My Heroes</h2>
+
 <ul class="heroes">
   <li
     *ngFor="let hero of heroes"
@@ -9,3 +10,10 @@
     <span class="name">{{ hero.name }}</span>
   </li>
 </ul>
+
+<div>
+  <label for="heroName">Hero name:
+    <input [(ngModel)]="heroName" id="heroName" name=heroName />
+  </label>
+  <button (click)="add()">Add</button>
+</div>

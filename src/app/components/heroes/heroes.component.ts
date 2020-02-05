@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { HeroService } from '../../services/hero.service';
 import { Hero } from '../../models/hero';
@@ -9,6 +9,7 @@ import { Hero } from '../../models/hero';
   styleUrls: ['./heroes.component.less']
 })
 export class HeroesComponent implements OnInit {
+  heroName: string;
   heroes: Hero[];
 
   constructor(private heroService: HeroService) { }
@@ -20,6 +21,20 @@ export class HeroesComponent implements OnInit {
   getHeroes(): void {
     this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes);
+  }
+
+  add(): void {
+    if (!this.heroName.trim()) return;
+
+    this.heroService.addHero({ name: this.heroName } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+        this.clearInput();
+      });
+  }
+
+  clearInput(): void {
+    this.heroName = '';
   }
 
 }
