@@ -6,6 +6,8 @@
 
   .hero {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     cursor: pointer;
     background: #eee;
     margin: .5em;
@@ -26,7 +28,19 @@
     }
 
     .name {
-      padding: 10px;
+      padding: 8px 10px;
+    }
+
+    .delete {
+      height: 35px;
+      margin: 0;
+      background: transparent;
+
+      &:hover,
+      &:focus {
+        background: transparent;
+        color: crimson;
+      }
     }
   }
 }

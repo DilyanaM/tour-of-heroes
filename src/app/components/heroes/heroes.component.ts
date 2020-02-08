@@ -33,6 +33,11 @@ export class HeroesComponent implements OnInit {
       });
   }
 
+  delete(id: number): void {
+    this.heroes = this.heroes.filter(hero => hero.id !== id);
+    this.heroService.deleteHero(id).subscribe();
+  }
+
   clearInput(): void {
     this.heroName = '';
   }
