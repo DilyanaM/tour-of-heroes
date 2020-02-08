@@ -18,12 +18,12 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
-  getHeroes(): void {
+  getHeroes() {
     this.heroService.getHeroes()
       .subscribe(heroes => this.heroes = heroes);
   }
 
-  add(): void {
+  add() {
     if (!this.heroName.trim()) return;
 
     this.heroService.addHero({ name: this.heroName } as Hero)
@@ -33,12 +33,12 @@ export class HeroesComponent implements OnInit {
       });
   }
 
-  delete(id: number): void {
+  delete(id: number) {
     this.heroes = this.heroes.filter(hero => hero.id !== id);
     this.heroService.deleteHero(id).subscribe();
   }
 
-  clearInput(): void {
+  clearInput() {
     this.heroName = '';
   }
 

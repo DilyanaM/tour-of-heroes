@@ -1,0 +1,39 @@
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .title {
+    text-align: center;
+  }
+
+  .search-result {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+    li {
+      cursor: pointer;
+      list-style-type: none;
+
+      a {
+        color: #888;
+        display: block;
+        text-decoration: none;
+        text-align: center;
+
+        &:hover,
+        &:active {
+          color: white;
+        }
+      }
+    }
+  }
+
+  #search-box {
+    width: 200px;
+    height: 20px;
+  }
+}
