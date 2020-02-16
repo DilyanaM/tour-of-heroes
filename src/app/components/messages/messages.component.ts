@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { MessageService } from '../../services/message.service';
 
@@ -7,9 +7,15 @@ import { MessageService } from '../../services/message.service';
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.less']
 })
-export class MessagesComponent {
+export class MessagesComponent implements OnInit {
+
+  messagesLength: number;
 
   constructor(private messageService: MessageService) { }
+
+  ngOnInit() {
+    this.messagesLength = this.messageService.messages.length;
+  }
 
   get messages() {
     return this.messageService.messages;
